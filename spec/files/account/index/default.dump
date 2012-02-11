@@ -1,0 +1,16 @@
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+Status: 200
+X-Powered-By: Phusion Passenger (mod_rails/mod_rack) 3.0.7
+X-UA-Compatible: IE=Edge,chrome=1
+ETag: "c58d5fa387c6862748e219848931776b"
+Cache-Control: must-revalidate, private, max-age=0
+X-Request-Id: d40e45d4493f167b7f92df5faa977c1c
+X-Runtime: 0.151658
+Date: Sat, 11 Feb 2012 11:31:14 GMT
+X-Rack-Cache: miss
+Server: nginx/1.0.4 + Phusion Passenger 3.0.7 (mod_rails/mod_rack)
+
+{"account":{"id":"000000000000000000000000","email":"test@example.com","api_token":"0000000000000000000000000000000000000000","credits_remaining":499}}

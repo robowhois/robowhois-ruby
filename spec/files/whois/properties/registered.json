@@ -1,0 +1,155 @@
+{
+  "response": {
+    "daystamp": "2012-02-11",
+    "properties": {
+      "disclaimer": "TERMS OF USE: You are not authorized to access or query our Whois database through the use of electronic processes that are high-volume and automated except as reasonably necessary to register domain names or modify existing registrations; the Data in VeriSign Global Registry Services' (\"VeriSign\") Whois database is provided by VeriSign for information purposes only, and to assist persons in obtaining information about or related to a domain name registration record. VeriSign does not guarantee its accuracy. By submitting a Whois query, you agree to abide by the following terms of use: You agree that you may use this Data only for lawful purposes and that under no circumstances will you use this Data to: (1) allow, enable, or otherwise support the transmission of mass unsolicited, commercial advertising or solicitations via e-mail, telephone, or facsimile; or (2) enable high volume, automated, electronic processes that apply to VeriSign (or its computer systems). The compilation, repackaging, dissemination or other use of this Data is expressly prohibited without the prior written consent of VeriSign. You agree not to use electronic processes that are automated and high-volume to access or query the Whois database except as reasonably necessary to register domain names or modify existing registrations. VeriSign reserves the right to restrict your access to the Whois database in its sole discretion to ensure operational stability.  VeriSign may restrict or terminate your access to the Whois database for failure to abide by these terms of use. VeriSign reserves the right to modify these terms at any time.",
+      "domain": "google.com",
+      "domain_id": null,
+      "referral_whois": [
+        "whois.PublicDomainRegistry.com",
+        "whois.tucows.com",
+        "whois.domaincontext.com",
+        "whois.PublicDomainRegistry.com",
+        "whois.PublicDomainRegistry.com",
+        "whois.PublicDomainRegistry.com",
+        "whois.rrpproxy.net",
+        "whois.onlinenic.com",
+        "whois.dotster.com",
+        "whois.PublicDomainRegistry.com",
+        "whois.PublicDomainRegistry.com",
+        "whois.webnic.cc",
+        "whois.PublicDomainRegistry.com",
+        "whois.enterprice.net",
+        "whois.melbourneit.com",
+        "whois.godaddy.com",
+        "whois.enom.com",
+        "whois.godaddy.com",
+        "whois.enom.com",
+        "whois.omnis.com",
+        "whois.godaddy.com",
+        "whois.dotster.com",
+        "whois.PublicDomainRegistry.com",
+        "whois.names4ever.com",
+        "whois.wildwestdomains.com",
+        "whois.PublicDomainRegistry.com",
+        "whois.PublicDomainRegistry.com",
+        "whois.enom.com",
+        "whois.name.com",
+        "whois.gandi.net",
+        "whois.hostingservicesinc.net",
+        "grs-whois.hichina.com",
+        "whois.tucows.com",
+        "whois.PublicDomainRegistry.com",
+        "whois.godaddy.com",
+        "whois.namesecure.com",
+        "whois.paycenter.com.cn",
+        "whois.enom.com",
+        "whois.godaddy.com",
+        "whois.tucows.com",
+        "whois.planetdomain.com",
+        "whois.enom.com",
+        "whois.tucows.com",
+        "whois.markmonitor.com"
+      ],
+      "referral_url": "http://www.markmonitor.com",
+      "status": [
+        "clientDeleteProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited",
+        "serverDeleteProhibited",
+        "serverTransferProhibited",
+        "serverUpdateProhibited"
+      ],
+      "available?": false,
+      "registered?": true,
+      "created_on": "1997-09-15T00:00:00+00:00",
+      "updated_on": "2012-01-29T00:00:00+00:00",
+      "expires_on": "2020-09-13T00:00:00+00:00",
+      "registrar": {
+        "id": null,
+        "name": "Markmonitor.com",
+        "organization": null,
+        "url": "http://www.markmonitor.com"
+      },
+      "registrant_contacts": [
+        {
+          "id": null,
+          "type": 1,
+          "name": "Dns Admin",
+          "organization": "Google Inc.",
+          "address": "Please contact contact-admin@google.com 1600 Amphitheatre Parkway",
+          "city": "Mountain View",
+          "zip": "94043",
+          "state": "CA",
+          "country": null,
+          "country_code": "US",
+          "phone": "+1.6502530000",
+          "fax": "+1.6506188571",
+          "email": "dns-admin@google.com",
+          "created_on": null,
+          "updated_on": null
+        }
+      ],
+      "admin_contacts": [
+        {
+          "id": null,
+          "type": 2,
+          "name": "DNS Admin",
+          "organization": "Google Inc.",
+          "address": "1600 Amphitheatre Parkway",
+          "city": "Mountain View",
+          "zip": "94043",
+          "state": "CA",
+          "country": null,
+          "country_code": "US",
+          "phone": "+1.6506234000",
+          "fax": "+1.6506188571",
+          "email": "dns-admin@google.com",
+          "created_on": null,
+          "updated_on": null
+        }
+      ],
+      "technical_contacts": [
+        {
+          "id": null,
+          "type": 3,
+          "name": "DNS Admin",
+          "organization": "Google Inc.",
+          "address": "2400 E. Bayshore Pkwy",
+          "city": "Mountain View",
+          "zip": "94043",
+          "state": "CA",
+          "country": null,
+          "country_code": "US",
+          "phone": "+1.6503300100",
+          "fax": "+1.6506181499",
+          "email": "dns-admin@google.com",
+          "created_on": null,
+          "updated_on": null
+        }
+      ],
+      "nameservers": [
+        {
+          "name": "ns1.google.com",
+          "ipv4": null,
+          "ipv6": null
+        },
+        {
+          "name": "ns4.google.com",
+          "ipv4": null,
+          "ipv6": null
+        },
+        {
+          "name": "ns2.google.com",
+          "ipv4": null,
+          "ipv6": null
+        },
+        {
+          "name": "ns3.google.com",
+          "ipv4": null,
+          "ipv6": null
+        }
+      ]
+    }
+  }
+}
