@@ -1,3 +1,7 @@
+# Bundler
 .bundle
 pkg/*
-yardoc
+
+# YARD
+.yardoc
+yardoc/
