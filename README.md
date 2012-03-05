@@ -34,7 +34,7 @@ Please refer to the RoboWhois [API Documentation](http://docs.robowhois.com/api/
 
 ### Account information
 
-    client = RoboWhois.new('YOUR_API_KEY')
+    client = RoboWhois.new(:api_key => 'YOUR_API_KEY')
     account = client.account
 
     puts account['email']
@@ -44,7 +44,7 @@ Please refer to the RoboWhois [API Documentation](http://docs.robowhois.com/api/
 
 ### Original WHOIS record
 
-    client = RoboWhois.new('YOUR_API_KEY')
+    client = RoboWhois.new(:api_key => 'YOUR_API_KEY')
     response = client.whois('example.com')
 
     puts response
@@ -52,7 +52,7 @@ Please refer to the RoboWhois [API Documentation](http://docs.robowhois.com/api/
 
 ### Parsed WHOIS record
 
-    client = RoboWhois.new('YOUR_API_KEY')
+    client = RoboWhois.new(:api_key => 'YOUR_API_KEY')
     response = client.whois_properties('example.com')
 
     # The record date
@@ -78,7 +78,7 @@ Please refer to the RoboWhois [API Documentation](http://docs.robowhois.com/api/
 
 You can access the last response object using the `last_response` method.
 
-    client = RoboWhois.new('YOUR_API_KEY')
+    client = RoboWhois.new(:api_key => 'YOUR_API_KEY')
     account = client.account
 
     response = client.last_response
@@ -91,7 +91,7 @@ You can access the last response object using the `last_response` method.
 
 In case of failure, the API call raises a `RoboWhois::APIError` exception.
 
-    client = RoboWhois.new('YOUR_API_KEY')
+    client = RoboWhois.new(:api_key => 'YOUR_API_KEY')
 
     begin
       response = client.whois_properties('example.es')
