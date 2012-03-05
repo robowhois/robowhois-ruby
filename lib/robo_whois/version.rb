@@ -7,7 +7,7 @@
 #++
 
 
-module RoboWhois
+class RoboWhois
 
   # Holds information about library version.
   module Version

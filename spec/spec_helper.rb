@@ -1,5 +1,11 @@
-require 'rspec'
 require 'robowhois'
+
+require 'rubygems'
+require 'bundler'
+
+Bundler.require(:default, :test)
+
+require 'rspec'
 
 unless defined?(SPEC_ROOT)
   SPEC_ROOT = File.expand_path("../", __FILE__)
@@ -20,4 +26,10 @@ Dir[File.join(SPEC_ROOT, "support/**/*.rb")].each { |f| require f }
 
 RSpec.configure do |config|
   config.mock_with :rspec
+
+  config.before(:each) do
+    FakeWeb.clean_registry
+  end
 end
+
+FakeWeb.allow_net_connect = false

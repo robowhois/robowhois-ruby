@@ -2,7 +2,7 @@ require 'rubygems'
 require 'bundler'
 
 $:.unshift(File.dirname(__FILE__) + "/lib")
-require 'robowhois'
+require 'robo_whois/version'
 
 
 # Common package properties
@@ -32,8 +32,9 @@ spec = Gem::Specification.new do |s|
   s.executables       = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths     = %w( lib )
 
+  s.add_dependency "httparty", "~> 0.8.0"
+
   s.add_development_dependency "rake", "~> 0.9"
-  s.add_development_dependency "rspec", "~> 2.8.0"
   s.add_development_dependency "yard"
 end
 

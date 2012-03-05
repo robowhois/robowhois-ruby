@@ -13,4 +13,4 @@ Date: Sat, 11 Feb 2012 11:31:14 GMT
 X-Rack-Cache: miss
 Server: nginx/1.0.4 + Phusion Passenger 3.0.7 (mod_rails/mod_rack)
 
-{"account":{"id":"000000000000000000000000","email":"test@example.com","api_token":"0000000000000000000000000000000000000000","credits_remaining":499}}
+{"account":{"id":"000000000000000000000000","email":"example@example.com","api_token":"0000000000000000000000000000000000000000","credits_remaining":499}}
