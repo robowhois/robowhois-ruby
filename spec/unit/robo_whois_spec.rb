@@ -18,14 +18,14 @@ describe RoboWhois do
       RoboWhois.should_receive(:get).with('/account', hash_including(:basic_auth => {
           :username => "API_KEY",
           :password => "X",
-      }))
+      })).and_return({})
       client.account
     end
 
     it "sets headers" do
       RoboWhois.should_receive(:get).with('/account', hash_including(:headers => {
           "User-Agent" => "RoboWhois Ruby #{RoboWhois::VERSION}"
-      }))
+      })).and_return({})
       client.account
     end
   end
@@ -37,15 +37,15 @@ describe RoboWhois do
     end
 
     it "responds with 200" do
-      @response.code.should == 200
+      client.last_response.code.should == 200
     end
 
     it "returns account information" do
       @response.should be_a(Hash)
-      @response['account']['id'].should == '000000000000000000000000'
-      @response['account']['email'].should == 'example@example.com'
-      @response['account']['api_token'].should == '0000000000000000000000000000000000000000'
-      @response['account']['credits_remaining'].should == 499
+      @response['id'].should == '000000000000000000000000'
+      @response['email'].should == 'example@example.com'
+      @response['api_token'].should == '0000000000000000000000000000000000000000'
+      @response['credits_remaining'].should == 499
     end
   end
 
@@ -56,7 +56,7 @@ describe RoboWhois do
     end
 
     it "responds with 200" do
-      @response.code.should == 200
+      client.last_response.code.should == 200
     end
 
     it "returns the raw whois record" do
@@ -72,14 +72,14 @@ describe RoboWhois do
     end
 
     it "responds with 200" do
-      @response.code.should == 200
+      client.last_response.code.should == 200
     end
 
     it "returns whois availability" do
       @response.should be_a(Hash)
-      @response['response']['daystamp'].should == '2012-02-11'
-      @response['response']['available'].should == false
-      @response['response']['registered'].should == true
+      @response['daystamp'].should == '2012-02-11'
+      @response['available'].should == false
+      @response['registered'].should == true
     end
   end
 
@@ -90,19 +90,19 @@ describe RoboWhois do
     end
 
     it "responds with 200" do
-      @response.code.should == 200
+      client.last_response.code.should == 200
     end
 
     it "returns whois record parts" do
       @response.should be_a(Hash)
-      @response['response']['daystamp'].should == '2012-02-11'
-      @response['response']['parts'].size.should == 2
+      @response['daystamp'].should == '2012-02-11'
+      @response['parts'].size.should == 2
 
-      part = @response['response']['parts'][0]
+      part = @response['parts'][0]
       part['host'].should == 'whois.crsnic.net'
       part['body'].should =~ /^\nWhois Server Version 2.0/
 
-      part = @response['response']['parts'][1]
+      part = @response['parts'][1]
       part['host'].should == 'whois.iana.org'
       part['body'].should =~ /^% IANA WHOIS server/
     end
@@ -115,15 +115,15 @@ describe RoboWhois do
     end
 
     it "responds with 200" do
-      @response.code.should == 200
+      client.last_response.code.should == 200
     end
 
     it "returns whois properties" do
       @response.should be_a(Hash)
-      @response['response']['daystamp'].should == '2012-02-11'
-      @response['response']['properties'].should be_a(Hash)
+      @response['daystamp'].should == '2012-02-11'
+      @response['properties'].should be_a(Hash)
 
-      properties = @response['response']['properties']
+      properties = @response['properties']
       properties['disclaimer'].should   =~ /^TERMS OF USE/
       properties['domain'].should       == 'google.com'
       properties['domain_id'].should    == nil
@@ -140,13 +140,13 @@ describe RoboWhois do
     end
 
     it "responds with 200" do
-      @response.code.should == 200
+      client.last_response.code.should == 200
     end
 
     it "returns whois record" do
       @response.should be_a(Hash)
-      @response['response']['daystamp'].should == '2012-02-11'
-      @response['response']['record'].should =~ /^\nWhois Server Version 2.0/
+      @response['daystamp'].should == '2012-02-11'
+      @response['record'].should =~ /^\nWhois Server Version 2.0/
     end
   end
 

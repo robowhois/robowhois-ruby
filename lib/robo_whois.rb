@@ -16,6 +16,8 @@ class RoboWhois
 
   base_uri "http://api.robowhois.com"
 
+  attr_reader :last_response
+
 
   def initialize(api_key)
     @auth = { :username => api_key, :password => "X" }
@@ -27,7 +29,7 @@ class RoboWhois
 
 
   def account
-    get("/account")
+    get("/account")["account"]
   end
 
   def whois(query)
@@ -35,19 +37,19 @@ class RoboWhois
   end
 
   def whois_availability(query)
-    get("/whois/#{query}/availability")
+    get("/whois/#{query}/availability")["response"]
   end
 
   def whois_parts(query)
-    get("/whois/#{query}/parts")
+    get("/whois/#{query}/parts")["response"]
   end
 
   def whois_properties(query)
-    get("/whois/#{query}/properties")
+    get("/whois/#{query}/properties")["response"]
   end
 
   def whois_record(query)
-    get("/whois/#{query}/record")
+    get("/whois/#{query}/record")["response"]
   end
 
 
@@ -58,7 +60,7 @@ private
   end
 
   def request(method, path, options)
-    self.class.send(method, path, options)
+    @last_response = self.class.send(method, path, options)
   end
 
   def options(hash = {})
