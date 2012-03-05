@@ -2,3 +2,75 @@
 
 This is the official Ruby client for [RoboWhois](http://www.robowhois.com/) [API](http://docs.robowhois.com/api/).
 
+
+## Installation
+
+The best way to install this library is via [RubyGems](https://rubygems.org/).
+
+    $ gem install robowhois
+
+You might need administrator privileges on your system to install the gem.
+
+
+## Usage
+
+All the examples below assume you installed the gem and required it via RubyGems.
+You also need a [RoboWhois](http://www.robowhois.com/) account and a valid API key.
+
+    require 'robowhois'
+
+Please refer to the RoboWhois [API Documentation](http://docs.robowhois.com/api/) for the list of all available API methods and response attributes.
+
+### Account information
+
+    client = RoboWhois.new('YOUR_API_KEY')
+    account = client.account
+
+    puts account['email']
+    # => your email
+    puts account['credits_limit']
+    # => available credits
+
+### Original WHOIS record
+
+    client = RoboWhois.new('YOUR_API_KEY')
+    response = client.whois('example.com')
+
+    puts response
+    # => The record String
+
+### Parsed WHOIS record
+
+    client = RoboWhois.new('YOUR_API_KEY')
+    response = client.whois_properties('example.com')
+
+    # The record date
+    puts response['daystamp']
+
+    # The record registrant
+    if contact = response['properties']['registrant_contacts']
+      puts contact['id']
+      puts contact['name']
+      puts contact['organization']
+    else
+      puts "Registrant details not available."
+    end
+
+    # The record nameservers
+    response['properties']['nameservers'].each do |nameserver|
+      puts nameserver['name']
+      puts nameserver['ipv4']
+      puts nameserver['ipv6']
+    end
+
+
+## Changelog
+
+See the CHANGELOG.md file for details.
+
+
+## License
+
+Copyright (c) 2012 RoboDomain Inc.
+
+This is Free Software distributed under the MIT license.
