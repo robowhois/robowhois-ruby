@@ -1,11 +1,25 @@
 require 'spec_helper'
 
 describe RoboWhois do
-  let(:client) { RoboWhois.new('API_KEY') }
+  let(:client) { RoboWhois.new(:api_key => 'API_KEY') }
 
   describe "#initialize" do
-    it "sets api_key" do
+    it "sets api_key from argument" do
+      client = RoboWhois.new(:api_key => 'API_KEY')
       client.api_key.should == 'API_KEY'
+    end
+
+    it "sets api_key from environment" do
+      ENV['ROBOWHOIS_API_KEY'] = 'ENV_KEY'
+      client = RoboWhois.new
+      client.api_key.should == 'ENV_KEY'
+      ENV.delete('ROBOWHOIS_API_KEY')
+    end
+
+    it "raises if no api_key is set" do
+      lambda {
+        RoboWhois.new
+      }.should raise_error(ArgumentError, "Missing API key")
     end
   end
 
@@ -163,7 +177,7 @@ describe RoboWhois do
 
   context "request failure" do
     describe "BadCredentials" do
-      let(:client) { client = RoboWhois.new('BAD_KEY') }
+      let(:client) { client = RoboWhois.new(:api_key => 'BAD_KEY') }
 
       before do
         stub_get('http://BAD_KEY:X@api.robowhois.com/account', 'error_bad_credentials')

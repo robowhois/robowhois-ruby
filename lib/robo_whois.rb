@@ -18,7 +18,7 @@ class RoboWhois
   end
 
   class APIError < Error
-
+    # @return [Hash] The :key => "value" hash of attributes.
     attr_reader :attributes
 
     def initialize(attributes)
@@ -30,13 +30,21 @@ class RoboWhois
 
   base_uri "http://api.robowhois.com"
 
+  # @return [HTTParty::Response] The response object returned by the last API call.
   attr_reader :last_response
 
 
-  def initialize(api_key)
-    @auth = { :username => api_key, :password => "X" }
+  def initialize(options = {})
+    options[:api_key] = (options[:api_key] || ENV["ROBOWHOIS_API_KEY"]).to_s
+
+    raise ArgumentError, "Missing API key" if options[:api_key].empty?
+
+    @auth = { :username => options[:api_key], :password => "X" }
   end
 
+  # Gets the current API key.
+  #
+  # @return [String]
   def api_key
     @auth[:username]
   end
