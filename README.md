@@ -63,6 +63,38 @@ Please refer to the RoboWhois [API Documentation](http://docs.robowhois.com/api/
       puts nameserver['ipv6']
     end
 
+### Response Object
+
+You can access the last response object using the `last_response` method.
+
+    client = RoboWhois.new('YOUR_API_KEY')
+    account = client.account
+
+    response = client.last_response
+    response.code
+    # => 200
+    response.headers
+    # => { ... }
+
+### Errors
+
+In case of failure, the API call raises a `RoboWhois::APIError` exception.
+
+    client = RoboWhois.new('YOUR_API_KEY')
+
+    begin
+      response = client.whois_properties('example.es')
+    rescue => error
+      puts error.code
+      # => "R2"
+      puts error.name
+      # => "ServerWhoisOnlyWeb"
+      puts error.status
+      # => 400
+    end
+
+Error codes are explained in the [API Errors](http://docs.robowhois.com/api/errors/) documentation page.
+
 
 ## Changelog
 

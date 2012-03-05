@@ -1,0 +1,16 @@
+HTTP/1.1 401 Unauthorized
+Content-Type: application/json; charset=utf-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+Status: 401
+X-Powered-By: Phusion Passenger (mod_rails/mod_rack) 3.0.11
+WWW-Authenticate: Basic realm="API"
+X-UA-Compatible: IE=Edge,chrome=1
+Cache-Control: no-cache
+X-Request-Id: 694d2e8894af1422aba9a045c293d1c2
+X-Runtime: 0.004623
+Date: Mon, 05 Mar 2012 11:38:21 GMT
+X-Rack-Cache: miss
+Server: nginx/1.1.14 + Phusion Passenger 3.0.11 (mod_rails/mod_rack)
+
+{"error":{"code":"C01","name":"Unauthenticated"}}

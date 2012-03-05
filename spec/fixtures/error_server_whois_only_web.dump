@@ -1,0 +1,15 @@
+HTTP/1.1 400 Bad Request
+Content-Type: application/json; charset=utf-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+Status: 400
+X-Powered-By: Phusion Passenger (mod_rails/mod_rack) 3.0.11
+X-UA-Compatible: IE=Edge,chrome=1
+Cache-Control: no-cache, private
+X-Request-Id: a55f033b1038cb6512314949813822ca
+X-Runtime: 0.327995
+Date: Mon, 05 Mar 2012 11:46:59 GMT
+X-Rack-Cache: miss
+Server: nginx/1.1.14 + Phusion Passenger 3.0.11 (mod_rails/mod_rack)
+
+{"error":{"code":"R02","name":"ServerWhoisOnlyWeb"}}

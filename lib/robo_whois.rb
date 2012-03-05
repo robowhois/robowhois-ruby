@@ -14,6 +14,20 @@ require 'httparty'
 class RoboWhois
   include HTTParty
 
+  class Error < StandardError
+  end
+
+  class APIError < Error
+
+    attr_reader :attributes
+
+    def initialize(attributes)
+      @attributes = attributes
+      super(attributes[:name])
+    end
+  end
+
+
   base_uri "http://api.robowhois.com"
 
   attr_reader :last_response
@@ -61,6 +75,13 @@ private
 
   def request(method, path, options)
     @last_response = self.class.send(method, path, options)
+    case @last_response.code
+    when 200
+      @last_response
+    else
+      error = @last_response["error"]
+      raise APIError, { :code => error["code"], :name => error["name"], :status => @last_response.code }
+    end
   end
 
   def options(hash = {})

@@ -10,6 +10,17 @@ describe RoboWhois do
   end
 
   describe "#request" do
+    let(:mock_response) {
+      Class.new(Object) do
+        def code
+          200
+        end
+        def [](key)
+          nil
+        end
+      end.new
+    }
+
     before do
       stub_get('http://API_KEY:X@api.robowhois.com/account', 'account')
     end
@@ -18,14 +29,14 @@ describe RoboWhois do
       RoboWhois.should_receive(:get).with('/account', hash_including(:basic_auth => {
           :username => "API_KEY",
           :password => "X",
-      })).and_return({})
+      })).and_return(mock_response)
       client.account
     end
 
     it "sets headers" do
       RoboWhois.should_receive(:get).with('/account', hash_including(:headers => {
           "User-Agent" => "RoboWhois Ruby #{RoboWhois::VERSION}"
-      })).and_return({})
+      })).and_return(mock_response)
       client.account
     end
   end
@@ -147,6 +158,34 @@ describe RoboWhois do
       @response.should be_a(Hash)
       @response['daystamp'].should == '2012-02-11'
       @response['record'].should =~ /^\nWhois Server Version 2.0/
+    end
+  end
+
+  context "request failure" do
+    describe "BadCredentials" do
+      let(:client) { client = RoboWhois.new('BAD_KEY') }
+
+      before do
+        stub_get('http://BAD_KEY:X@api.robowhois.com/account', 'error_bad_credentials')
+      end
+
+      it "raises an APIError" do
+        lambda {
+          client.account
+        }.should raise_error(RoboWhois::APIError, /BadCredentials/)
+      end
+    end
+
+    describe "ServerWhoisOnlyWeb" do
+      before do
+        stub_get('http://API_KEY:X@api.robowhois.com/whois/example.com/record', 'error_server_whois_only_web')
+      end
+
+      it "raises an APIError" do
+        lambda {
+          client.whois_record("example.com")
+        }.should raise_error(RoboWhois::APIError, /ServerWhoisOnlyWeb/)
+      end
     end
   end
 
