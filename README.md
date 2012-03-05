@@ -2,6 +2,17 @@
 
 This is the official Ruby client for [RoboWhois](http://www.robowhois.com/) [API](http://docs.robowhois.com/api/).
 
+[RoboWhois](http://www.robowhois.com/) is a web service that provides an API suite to **access WHOIS records and domain related information with a unified, consistent interface**.
+
+Using RoboWhois API you can:
+
+- check domain availability for any supported TLD
+- lookup WHOIS information for a domain and retrieve the WHOIS record
+- access WHOIS data using a consistent, well-structured, HTTP-based interface
+- retrieve WHOIS details parsed as convenient JSON structure
+
+Visit RoboWhois [site](http://www.robowhois.com/) and [documentation](http://docs.robowhois.com/) to learn more about the service.
+
 
 ## Installation
 
