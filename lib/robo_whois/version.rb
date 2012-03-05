@@ -12,7 +12,7 @@ class RoboWhois
   # Holds information about library version.
   module Version
     MAJOR = 0
-    MINOR = 0
+    MINOR = 1
     PATCH = 0
     BUILD = nil
 
