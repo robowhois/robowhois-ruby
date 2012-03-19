@@ -1,6 +1,11 @@
 # Changelog
 
 
+## master
+
+* CHANGED: Update clients to the new API Errors.
+
+
 ## Release 0.2.1
 
 * FIXED: Fixed outdated documentation that describes an invalid way to initialize the client.

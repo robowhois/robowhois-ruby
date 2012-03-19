@@ -192,13 +192,13 @@ describe RoboWhois do
 
     describe "ServerWhoisOnlyWeb" do
       before do
-        stub_get('http://API_KEY:X@api.robowhois.com/whois/example.com/record', 'error_server_whois_only_web')
+        stub_get('http://API_KEY:X@api.robowhois.com/whois/example.com/record', 'error_whois_server_only_web')
       end
 
       it "raises an APIError" do
         lambda {
           client.whois_record("example.com")
-        }.should raise_error(RoboWhois::APIError, /ServerWhoisOnlyWeb/)
+        }.should raise_error(RoboWhois::APIError, /WhoisServerOnlyWeb/)
       end
     end
   end

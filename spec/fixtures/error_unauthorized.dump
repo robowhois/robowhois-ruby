@@ -1,15 +1,16 @@
-HTTP/1.1 400 Bad Request
+HTTP/1.1 401 Unauthorized
 Content-Type: application/json; charset=utf-8
 Transfer-Encoding: chunked
 Connection: keep-alive
-Status: 400
+Status: 401
 X-Powered-By: Phusion Passenger (mod_rails/mod_rack) 3.0.11
+WWW-Authenticate: Basic realm="API"
 X-UA-Compatible: IE=Edge,chrome=1
-Cache-Control: no-cache, private
-X-Request-Id: a55f033b1038cb6512314949813822ca
-X-Runtime: 0.327995
-Date: Mon, 05 Mar 2012 11:46:59 GMT
+Cache-Control: no-cache
+X-Request-Id: 5406bd386bbf28fe4ea1085195d06912
+X-Runtime: 0.003840
+Date: Mon, 19 Mar 2012 21:26:45 GMT
 X-Rack-Cache: miss
 Server: nginx/1.1.14 + Phusion Passenger 3.0.11 (mod_rails/mod_rack)
 
-{"error":{"code":"R02","name":"ServerWhoisOnlyWeb"}}
+{"error":{"code":"C01","name":"Unauthorized"}}

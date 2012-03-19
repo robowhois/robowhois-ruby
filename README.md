@@ -97,9 +97,9 @@ In case of failure, the API call raises a `RoboWhois::APIError` exception.
       response = client.whois_properties('example.es')
     rescue => error
       puts error.code
-      # => "R2"
+      # => "R04"
       puts error.name
-      # => "ServerWhoisOnlyWeb"
+      # => "WhoisServerOnlyWeb"
       puts error.status
       # => 400
     end
