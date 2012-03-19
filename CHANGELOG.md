@@ -1,7 +1,7 @@
 # Changelog
 
 
-## master
+## Release 0.2.2
 
 * CHANGED: Update clients to the new API Errors.
 
