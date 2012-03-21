@@ -25,7 +25,7 @@ spec = Gem::Specification.new do |s|
 
   s.authors           = ["Simone Carletti"]
   s.email             = ["weppos@weppos.net"]
-  s.homepage          = "https://github.com/robowhois/robowhois-ruby-client"
+  s.homepage          = "https://github.com/robowhois/robowhois-ruby"
 
   s.files             = `git ls-files`.split("\n")
   s.test_files        = `git ls-files -- {test,spec,features}/*`.split("\n")
