@@ -1,6 +1,7 @@
 # Changelog
 
-## Master
+
+## Release 0.3.0
 
 * ADDED: Support for the new /availability endpoint.
 
