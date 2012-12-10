@@ -36,7 +36,7 @@ describe RoboWhois do
     }
 
     before do
-      stub_get('http://API_KEY:X@api.robowhois.com/account', 'account')
+      stub_get('http://API_KEY:X@api.robowhois.com/v1/account', 'account')
     end
 
     it "sets authentication credentials" do
@@ -57,7 +57,7 @@ describe RoboWhois do
 
   describe "#account" do
     before do
-      stub_get('http://API_KEY:X@api.robowhois.com/account', 'account')
+      stub_get('http://API_KEY:X@api.robowhois.com/v1/account', 'account')
       @response = client.account
     end
 
@@ -76,7 +76,7 @@ describe RoboWhois do
 
   describe "#whois" do
     before do
-      stub_get('http://API_KEY:X@api.robowhois.com/whois/example.com', 'whois')
+      stub_get('http://API_KEY:X@api.robowhois.com/v1/whois/example.com', 'whois')
       @response = client.whois("example.com")
     end
 
@@ -92,7 +92,7 @@ describe RoboWhois do
 
   describe "#whois_availability" do
     before do
-      stub_get('http://API_KEY:X@api.robowhois.com/whois/example.com/availability', 'whois_availability')
+      stub_get('http://API_KEY:X@api.robowhois.com/v1/whois/example.com/availability', 'whois_availability')
       @response = client.whois_availability("example.com")
     end
 
@@ -110,7 +110,7 @@ describe RoboWhois do
 
   describe "#whois_parts" do
     before do
-      stub_get('http://API_KEY:X@api.robowhois.com/whois/example.com/parts', 'whois_parts')
+      stub_get('http://API_KEY:X@api.robowhois.com/v1/whois/example.com/parts', 'whois_parts')
       @response = client.whois_parts("example.com")
     end
 
@@ -135,7 +135,7 @@ describe RoboWhois do
 
   describe "#whois_properties" do
     before do
-      stub_get('http://API_KEY:X@api.robowhois.com/whois/example.com/properties', 'whois_properties')
+      stub_get('http://API_KEY:X@api.robowhois.com/v1/whois/example.com/properties', 'whois_properties')
       @response = client.whois_properties("example.com")
     end
 
@@ -160,7 +160,7 @@ describe RoboWhois do
 
   describe "#whois_record" do
     before do
-      stub_get('http://API_KEY:X@api.robowhois.com/whois/example.com/record', 'whois_record')
+      stub_get('http://API_KEY:X@api.robowhois.com/v1/whois/example.com/record', 'whois_record')
       @response = client.whois_record("example.com")
     end
 
@@ -180,7 +180,7 @@ describe RoboWhois do
       let(:client) { client = RoboWhois.new(:api_key => 'BAD_KEY') }
 
       before do
-        stub_get('http://BAD_KEY:X@api.robowhois.com/account', 'error_bad_credentials')
+        stub_get('http://BAD_KEY:X@api.robowhois.com/v1/account', 'error_bad_credentials')
       end
 
       it "raises an APIError" do
@@ -192,7 +192,7 @@ describe RoboWhois do
 
     describe "ServerWhoisOnlyWeb" do
       before do
-        stub_get('http://API_KEY:X@api.robowhois.com/whois/example.com/record', 'error_whois_server_only_web')
+        stub_get('http://API_KEY:X@api.robowhois.com/v1/whois/example.com/record', 'error_whois_server_only_web')
       end
 
       it "raises an APIError" do

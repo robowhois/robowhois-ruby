@@ -1,5 +1,9 @@
 # Changelog
 
+## Master
+
+* CHANGED: Switch to versioned endpoint (v1).
+
 
 ## Release 0.2.2
 
