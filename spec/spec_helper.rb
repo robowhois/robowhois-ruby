@@ -20,6 +20,9 @@ else
   Encoding.default_internal = Encoding::UTF_8
 end
 
+FakeWeb.allow_net_connect = false
+
+
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
 Dir[File.join(SPEC_ROOT, "support/**/*.rb")].each { |f| require f }
@@ -31,5 +34,3 @@ RSpec.configure do |config|
     FakeWeb.clean_registry
   end
 end
-
-FakeWeb.allow_net_connect = false
