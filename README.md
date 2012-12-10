@@ -1,6 +1,6 @@
 # RoboWhois - Ruby Client
 
-This is the official Ruby client for [RoboWhois](http://www.robowhois.com/) [API](http://docs.robowhois.com/api/).
+This is the official Ruby client for [RoboWhois](https://www.robowhois.com/) [API](https://www.robowhois.com/docs/api/).
 
 [RoboWhois](http://www.robowhois.com/) is a web service that provides an API suite to **access WHOIS records and domain related information with a unified, consistent interface**.
 
@@ -11,7 +11,7 @@ Using RoboWhois API you can:
 - access WHOIS data using a consistent, well-structured, HTTP-based interface
 - retrieve WHOIS details parsed as convenient JSON structure
 
-Visit RoboWhois [site](http://www.robowhois.com/) and [documentation](http://docs.robowhois.com/) to learn more about the service.
+Visit RoboWhois [site](https://www.robowhois.com/) and [documentation](https://www.robowhois.com/docs/) to learn more about the service.
 
 
 ## Installation
@@ -30,7 +30,7 @@ You also need a [RoboWhois](http://www.robowhois.com/) account and a valid API k
 
     require 'robowhois'
 
-Please refer to the RoboWhois [API Documentation](http://docs.robowhois.com/api/) for the list of all available API methods and response attributes.
+Please refer to the RoboWhois [API Documentation](https://www.robowhois.com/docs/api/) for the list of all available API methods and response attributes.
 
 ### Account information
 
@@ -104,7 +104,7 @@ In case of failure, the API call raises a `RoboWhois::APIError` exception.
       # => 400
     end
 
-Error codes are explained in the [API Errors](http://docs.robowhois.com/api/errors/) documentation page.
+Error codes are explained in the [API Errors](https://www.robowhois.com/docs/api/errors/) documentation page.
 
 
 ## Changelog
@@ -115,5 +115,6 @@ See the CHANGELOG.md file for details.
 ## License
 
 Copyright (c) 2012 RoboDomain Inc.
+Copyright (c) 2012 Aetrion LLC.
 
 This is Free Software distributed under the MIT license.
