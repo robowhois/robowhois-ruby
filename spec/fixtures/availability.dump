@@ -1,0 +1,16 @@
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+Status: 200
+X-Powered-By: Phusion Passenger (mod_rails/mod_rack) 3.0.11
+X-UA-Compatible: IE=Edge,chrome=1
+ETag: "d3c2e3d6c06f9cf647c640b2f81f5c9f"
+Cache-Control: must-revalidate, private, max-age=0
+X-Request-Id: 077ae0297ef7b5d6eef8ff951d18257f
+X-Runtime: 0.546973
+Date: Mon, 10 Dec 2012 21:56:05 GMT
+X-Rack-Cache: miss
+Server: nginx/1.1.14 + Phusion Passenger 3.0.11 (mod_rails/mod_rack)
+
+{"response":{"available":false}}

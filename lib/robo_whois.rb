@@ -28,6 +28,17 @@ class RoboWhois
   end
 
 
+  # Echoes a deprecation warning message.
+  #
+  # @param  [String] message The message to display.
+  # @return [void]
+  #
+  def self.deprecate(message = nil)
+    message ||= "You are using deprecated behavior which will be removed from the next major or minor release."
+    warn("DEPRECATION WARNING: #{message}")
+  end
+
+
   base_uri "http://api.robowhois.com/v1"
 
   # @return [HTTParty::Response] The response object returned by the last API call.
@@ -54,12 +65,9 @@ class RoboWhois
     get("/account")["account"]
   end
 
+
   def whois(query)
     get("/whois/#{query}")
-  end
-
-  def whois_availability(query)
-    get("/whois/#{query}/availability")["response"]
   end
 
   def whois_parts(query)
@@ -72,6 +80,15 @@ class RoboWhois
 
   def whois_record(query)
     get("/whois/#{query}/record")["response"]
+  end
+
+  def whois_availability(query)
+    RoboWhois.deprecate("#whois_availability is deprecated, please use #availability")
+    availability(query)
+  end
+
+  def availability(query)
+    get("/availability/#{query}")["response"]
   end
 
 

@@ -2,7 +2,11 @@
 
 ## Master
 
+* ADDED: Support for the new /availability endpoint.
+
 * CHANGED: Switch to versioned endpoint (v1).
+
+* CHANGED: /whois/availability is deprecated.
 
 
 ## Release 0.2.2

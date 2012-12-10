@@ -1,1 +1,1 @@
-curl -u "$ROBOWHOIS_API_KEY:X" -i api.robowhois.com/account > spec/fixtures/account.dump
+curl -u "$ROBOWHOIS_API_KEY:X" -i http://api.robowhois.com/v1/account > spec/fixtures/account.dump

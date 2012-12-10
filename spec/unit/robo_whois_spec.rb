@@ -90,24 +90,6 @@ describe RoboWhois do
     end
   end
 
-  describe "#whois_availability" do
-    before do
-      stub_get('http://API_KEY:X@api.robowhois.com/v1/whois/example.com/availability', 'whois_availability')
-      @response = client.whois_availability("example.com")
-    end
-
-    it "responds with 200" do
-      client.last_response.code.should == 200
-    end
-
-    it "returns whois availability" do
-      @response.should be_a(Hash)
-      @response['daystamp'].should == '2012-02-11'
-      @response['available'].should == false
-      @response['registered'].should == true
-    end
-  end
-
   describe "#whois_parts" do
     before do
       stub_get('http://API_KEY:X@api.robowhois.com/v1/whois/example.com/parts', 'whois_parts')
@@ -174,6 +156,30 @@ describe RoboWhois do
       @response['record'].should =~ /^\nWhois Server Version 2.0/
     end
   end
+
+  describe "#whois_availability" do
+    it "delegates to #availability" do
+      client.should_receive(:availability).with("example.com")
+      client.whois_availability("example.com")
+    end
+  end
+
+  describe "#availability" do
+    before do
+      stub_get('http://API_KEY:X@api.robowhois.com/v1/availability/example.com', 'availability')
+      @response = client.availability("example.com")
+    end
+
+    it "responds with 200" do
+      client.last_response.code.should == 200
+    end
+
+    it "returns whois availability" do
+      @response.should be_a(Hash)
+      @response['available'].should == false
+    end
+  end
+
 
   context "request failure" do
     describe "BadCredentials" do
