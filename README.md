@@ -34,75 +34,85 @@ Please refer to the RoboWhois [API Documentation](https://www.robowhois.com/docs
 
 ### Account information
 
-    client = RoboWhois.new(:api_key => 'YOUR_API_KEY')
-    account = client.account
+```ruby
+client = RoboWhois.new(:api_key => 'YOUR_API_KEY')
+account = client.account
 
-    puts account['email']
-    # => your email
-    puts account['credits_limit']
-    # => available credits
+puts account['email']
+# => your email
+puts account['credits_limit']
+# => available credits
+```
 
 ### Original WHOIS record
 
-    client = RoboWhois.new(:api_key => 'YOUR_API_KEY')
-    response = client.whois('example.com')
+```ruby
+client = RoboWhois.new(:api_key => 'YOUR_API_KEY')
+response = client.whois('example.com')
 
-    puts response
-    # => The record String
+puts response
+# => The record String
+```
 
 ### Parsed WHOIS record
 
-    client = RoboWhois.new(:api_key => 'YOUR_API_KEY')
-    response = client.whois_properties('example.com')
+```ruby
+client = RoboWhois.new(:api_key => 'YOUR_API_KEY')
+response = client.whois_properties('example.com')
 
-    # The record date
-    puts response['daystamp']
+# The record date
+puts response['daystamp']
 
-    # The record registrant
-    if contact = response['properties']['registrant_contacts']
-      puts contact['id']
-      puts contact['name']
-      puts contact['organization']
-    else
-      puts "Registrant details not available."
-    end
+# The record registrant
+if contact = response['properties']['registrant_contacts']
+  puts contact['id']
+  puts contact['name']
+  puts contact['organization']
+else
+  puts "Registrant details not available."
+end
 
-    # The record nameservers
-    response['properties']['nameservers'].each do |nameserver|
-      puts nameserver['name']
-      puts nameserver['ipv4']
-      puts nameserver['ipv6']
-    end
+# The record nameservers
+response['properties']['nameservers'].each do |nameserver|
+  puts nameserver['name']
+  puts nameserver['ipv4']
+  puts nameserver['ipv6']
+end
+```
 
 ### Response Object
 
 You can access the last response object using the `last_response` method.
 
-    client = RoboWhois.new(:api_key => 'YOUR_API_KEY')
-    account = client.account
+```ruby
+client = RoboWhois.new(:api_key => 'YOUR_API_KEY')
+account = client.account
 
-    response = client.last_response
-    response.code
-    # => 200
-    response.headers
-    # => { ... }
+response = client.last_response
+response.code
+# => 200
+response.headers
+# => { ... }
+```
 
 ### Errors
 
 In case of failure, the API call raises a `RoboWhois::APIError` exception.
 
-    client = RoboWhois.new(:api_key => 'YOUR_API_KEY')
+```ruby
+client = RoboWhois.new(:api_key => 'YOUR_API_KEY')
 
-    begin
-      response = client.whois_properties('example.es')
-    rescue => error
-      puts error.code
-      # => "R04"
-      puts error.name
-      # => "WhoisServerOnlyWeb"
-      puts error.status
-      # => 400
-    end
+begin
+  response = client.whois_properties('example.es')
+rescue => error
+  puts error.code
+  # => "R04"
+  puts error.name
+  # => "WhoisServerOnlyWeb"
+  puts error.status
+  # => 400
+end
+```
 
 Error codes are explained in the [API Errors](https://www.robowhois.com/docs/api/v1/errors/) documentation page.
 
