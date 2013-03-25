@@ -1,7 +1,7 @@
 # Changelog
 
 
-## Master
+## Release 0.4.0
 
 * CHANGED: Relaxed dependencies to other gems
 
