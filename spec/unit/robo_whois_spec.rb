@@ -157,13 +157,6 @@ describe RoboWhois do
     end
   end
 
-  describe "#whois_availability" do
-    it "delegates to #availability" do
-      client.should_receive(:availability).with("example.com")
-      client.whois_availability("example.com")
-    end
-  end
-
   describe "#availability" do
     before do
       stub_get('http://API_KEY:X@api.robowhois.com/v1/availability/example.com', 'availability')

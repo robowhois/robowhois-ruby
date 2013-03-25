@@ -82,11 +82,6 @@ class RoboWhois
     get("/whois/#{query}/record")["response"]
   end
 
-  def whois_availability(query)
-    RoboWhois.deprecate("#whois_availability is deprecated, please use #availability")
-    availability(query)
-  end
-
   def availability(query)
     get("/availability/#{query}")["response"]
   end

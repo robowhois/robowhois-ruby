@@ -5,6 +5,8 @@
 
 * CHANGED: Relaxed dependencies to other gems
 
+* CHANGED: Removed deprecated #whois_availability method
+
 
 ## Release 0.3.0
 
