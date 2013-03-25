@@ -2,7 +2,7 @@
 
 This is the official Ruby client for [RoboWhois](https://www.robowhois.com/) [API](https://www.robowhois.com/docs/api/).
 
-[RoboWhois](http://www.robowhois.com/) is a web service that provides an API suite to **access WHOIS records and domain related information with a unified, consistent interface**.
+[RoboWhois](https://www.robowhois.com/) is a web service that provides an API suite to **access WHOIS records and domain related information with a unified, consistent interface**.
 
 Using RoboWhois API you can:
 
@@ -26,7 +26,7 @@ You might need administrator privileges on your system to install the gem.
 ## Usage
 
 All the examples below assume you installed the gem and required it via RubyGems.
-You also need a [RoboWhois](http://www.robowhois.com/) account and a valid API key.
+You also need a [RoboWhois](https://www.robowhois.com/) account and a valid API key.
 
     require 'robowhois'
 
@@ -104,7 +104,7 @@ In case of failure, the API call raises a `RoboWhois::APIError` exception.
       # => 400
     end
 
-Error codes are explained in the [API Errors](https://www.robowhois.com/docs/api/errors/) documentation page.
+Error codes are explained in the [API Errors](https://www.robowhois.com/docs/api/v1/errors/) documentation page.
 
 
 ## Changelog
