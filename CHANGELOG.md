@@ -1,6 +1,11 @@
 # Changelog
 
 
+## Master
+
+* CHANGED: Relaxed dependencies to other gems
+
+
 ## Release 0.3.0
 
 * ADDED: Support for the new /availability endpoint.
