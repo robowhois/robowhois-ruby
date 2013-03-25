@@ -115,6 +115,6 @@ See the CHANGELOG.md file for details.
 ## License
 
 Copyright (c) 2012 RoboDomain Inc.
-Copyright (c) 2012 Aetrion LLC.
+Copyright (c) 2012-2013 Aetrion LLC.
 
 This is Free Software distributed under the MIT license.
