@@ -5,6 +5,8 @@
 
 - CHANGED: Switched to HTTPs API URI.
 
+- CHANGED: Slightly change user agent to robowhois-ruby/VERSION
+
 
 #### Release 0.4.0
 

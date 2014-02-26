@@ -49,7 +49,7 @@ describe RoboWhois do
 
     it "sets headers" do
       RoboWhois.should_receive(:get).with('/account', hash_including(:headers => {
-          "User-Agent" => "RoboWhois Ruby #{RoboWhois::VERSION}"
+          "User-Agent" => "robowhois-ruby/#{RoboWhois::VERSION}"
       })).and_return(mock_response)
       client.account
     end

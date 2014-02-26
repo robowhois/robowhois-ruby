@@ -106,7 +106,7 @@ private
 
   def options(hash = {})
     hash[:headers] ||= {}
-    hash[:headers]["User-Agent"] = "RoboWhois Ruby #{VERSION}"
+    hash[:headers]["User-Agent"] = "robowhois-ruby/#{VERSION}"
     hash[:basic_auth] = @auth
     hash
   end
