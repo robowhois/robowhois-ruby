@@ -1,7 +1,7 @@
 # Changelog
 
 
-#### master
+#### Release 0.5.0
 
 - CHANGED: Switched to HTTPs API URI.
 
