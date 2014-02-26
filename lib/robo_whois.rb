@@ -39,7 +39,7 @@ class RoboWhois
   end
 
 
-  base_uri "http://api.robowhois.com/v1"
+  base_uri "https://api.robowhois.com/v1"
 
   # @return [HTTParty::Response] The response object returned by the last API call.
   attr_reader :last_response
