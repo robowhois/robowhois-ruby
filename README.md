@@ -65,9 +65,9 @@ puts response['daystamp']
 
 # The record registrant
 if contact = response['properties']['registrant_contacts']
-  puts contact['id']
-  puts contact['name']
-  puts contact['organization']
+  puts contact.first['id']
+  puts contact.first['name']
+  puts contact.first['organization']
 else
   puts "Registrant details not available."
 end
