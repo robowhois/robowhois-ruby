@@ -64,7 +64,7 @@ response = client.whois_properties('example.com')
 puts response['daystamp']
 
 # The record registrant
-if contact = response['properties']['registrant_contacts']
+if contact = response['properties']['registrant_contacts'].first
   puts contact['id']
   puts contact['name']
   puts contact['organization']
