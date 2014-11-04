@@ -6,20 +6,18 @@ describe RoboWhois do
   describe "#initialize" do
     it "sets api_key from argument" do
       client = RoboWhois.new(:api_key => 'API_KEY')
-      client.api_key.should == 'API_KEY'
+      expect(client.api_key).to eq('API_KEY')
     end
 
     it "sets api_key from environment" do
       ENV['ROBOWHOIS_API_KEY'] = 'ENV_KEY'
       client = RoboWhois.new
-      client.api_key.should == 'ENV_KEY'
+      expect(client.api_key).to eq('ENV_KEY')
       ENV.delete('ROBOWHOIS_API_KEY')
     end
 
     it "raises if no api_key is set" do
-      lambda {
-        RoboWhois.new
-      }.should raise_error(ArgumentError, "Missing API key")
+      expect { RoboWhois.new }.to raise_error(ArgumentError, "Missing API key")
     end
   end
 
@@ -40,7 +38,7 @@ describe RoboWhois do
     end
 
     it "sets authentication credentials" do
-      RoboWhois.should_receive(:get).with('/account', hash_including(:basic_auth => {
+      expect(RoboWhois).to receive(:get).with('/account', hash_including(:basic_auth => {
           :username => "API_KEY",
           :password => "X",
       })).and_return(mock_response)
@@ -48,7 +46,7 @@ describe RoboWhois do
     end
 
     it "sets headers" do
-      RoboWhois.should_receive(:get).with('/account', hash_including(:headers => {
+      expect(RoboWhois).to receive(:get).with('/account', hash_including(:headers => {
           "User-Agent" => "robowhois-ruby/#{RoboWhois::VERSION}"
       })).and_return(mock_response)
       client.account
@@ -62,15 +60,15 @@ describe RoboWhois do
     end
 
     it "responds with 200" do
-      client.last_response.code.should == 200
+      expect(client.last_response.code).to eq(200)
     end
 
     it "returns account information" do
-      @response.should be_a(Hash)
-      @response['id'].should == '000000000000000000000000'
-      @response['email'].should == 'example@example.com'
-      @response['api_token'].should == '0000000000000000000000000000000000000000'
-      @response['credits_remaining'].should == 499
+      expect(@response).to be_a(Hash)
+      expect(@response['id']).to eq('000000000000000000000000')
+      expect(@response['email']).to eq('example@example.com')
+      expect(@response['api_token']).to eq('0000000000000000000000000000000000000000')
+      expect(@response['credits_remaining']).to eq(499)
     end
   end
 
@@ -81,12 +79,12 @@ describe RoboWhois do
     end
 
     it "responds with 200" do
-      client.last_response.code.should == 200
+      expect(client.last_response.code).to eq(200)
     end
 
     it "returns the raw whois record" do
-      @response.should be_a(String)
-      @response.should =~ /^\nWhois Server Version 2.0/
+      expect(@response).to be_a(String)
+      expect(@response).to match(/^\nWhois Server Version 2.0/)
     end
   end
 
@@ -97,21 +95,21 @@ describe RoboWhois do
     end
 
     it "responds with 200" do
-      client.last_response.code.should == 200
+      expect(client.last_response.code).to eq(200)
     end
 
     it "returns whois record parts" do
-      @response.should be_a(Hash)
-      @response['daystamp'].should == '2012-02-11'
-      @response['parts'].size.should == 2
+      expect(@response).to be_a(Hash)
+      expect(@response['daystamp']).to eq('2012-02-11')
+      expect(@response['parts'].size).to eq(2)
 
       part = @response['parts'][0]
-      part['host'].should == 'whois.crsnic.net'
-      part['body'].should =~ /^\nWhois Server Version 2.0/
+      expect(part['host']).to eq('whois.crsnic.net')
+      expect(part['body']).to match(/^\nWhois Server Version 2.0/)
 
       part = @response['parts'][1]
-      part['host'].should == 'whois.iana.org'
-      part['body'].should =~ /^% IANA WHOIS server/
+      expect(part['host']).to eq('whois.iana.org')
+      expect(part['body']).to match(/^% IANA WHOIS server/)
     end
   end
 
@@ -122,21 +120,21 @@ describe RoboWhois do
     end
 
     it "responds with 200" do
-      client.last_response.code.should == 200
+      expect(client.last_response.code).to eq(200)
     end
 
     it "returns whois properties" do
-      @response.should be_a(Hash)
-      @response['daystamp'].should == '2012-02-11'
-      @response['properties'].should be_a(Hash)
+      expect(@response).to be_a(Hash)
+      expect(@response['daystamp']).to eq('2012-02-11')
+      expect(@response['properties']).to be_a(Hash)
 
       properties = @response['properties']
-      properties['disclaimer'].should   =~ /^TERMS OF USE/
-      properties['domain'].should       == 'google.com'
-      properties['domain_id'].should    == nil
-      properties['available?'].should   == false
-      properties['registered?'].should  == true
-      properties['registrar'].should    be_a(Hash)
+      expect(properties['disclaimer']).to match(/^TERMS OF USE/)
+      expect(properties['domain']).to eq('google.com')
+      expect(properties['domain_id']).to be_nil
+      expect(properties['available?']).to be_falsey
+      expect(properties['registered?']).to be_truthy
+      expect(properties['registrar']).to be_a(Hash)
     end
   end
 
@@ -147,13 +145,13 @@ describe RoboWhois do
     end
 
     it "responds with 200" do
-      client.last_response.code.should == 200
+      expect(client.last_response.code).to eq(200)
     end
 
     it "returns whois record" do
-      @response.should be_a(Hash)
-      @response['daystamp'].should == '2012-02-11'
-      @response['record'].should =~ /^\nWhois Server Version 2.0/
+      expect(@response).to be_a(Hash)
+      expect(@response['daystamp']).to eq('2012-02-11')
+      expect(@response['record']).to match(/^\nWhois Server Version 2.0/)
     end
   end
 
@@ -164,12 +162,12 @@ describe RoboWhois do
     end
 
     it "responds with 200" do
-      client.last_response.code.should == 200
+      expect(client.last_response.code).to eq(200)
     end
 
     it "returns whois availability" do
-      @response.should be_a(Hash)
-      @response['available'].should == false
+      expect(@response).to be_a(Hash)
+      expect(@response['available']).to be_falsey
     end
   end
 
@@ -183,9 +181,9 @@ describe RoboWhois do
       end
 
       it "raises an APIError" do
-        lambda {
+        expect {
           client.account
-        }.should raise_error(RoboWhois::APIError, /BadCredentials/)
+        }.to raise_error(RoboWhois::APIError, /BadCredentials/)
       end
     end
 
@@ -195,9 +193,9 @@ describe RoboWhois do
       end
 
       it "raises an APIError" do
-        lambda {
+        expect {
           client.whois_record("example.com")
-        }.should raise_error(RoboWhois::APIError, /WhoisServerOnlyWeb/)
+        }.to raise_error(RoboWhois::APIError, /WhoisServerOnlyWeb/)
       end
     end
   end
